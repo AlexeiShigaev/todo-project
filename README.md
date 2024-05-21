@@ -2,11 +2,11 @@
 
 ## Как запустить
 
-Предварительно, убедитесь что у вас установлен docker.
+Предварительно, убедитесь что у вас установлен docker-compose.
 
 
 ```
-git clone https://github.com/AlexeiShigaev/todo-project.git
+git clone -b development https://github.com/AlexeiShigaev/todo-project.git
 docker compose up --build
 ```
 
@@ -20,3 +20,13 @@ docker compose up --build
 ## Swagger документация
 
 Страница [http://127.0.0.1:8000/swagger](http://127.0.0.1:8000/swagger)
+
+## API для обмена данными
+
+Страница [http://127.0.0.1:8000/api/todos/tasks/](http://127.0.0.1:8000/api/todos/tasks/)
+Страница [http://127.0.0.1:8000/api/todos/tags/](http://127.0.0.1:8000/api/todos/tags/)
+
+## Удалить в конце совсем все
+```
+docker system prune -a
+```
