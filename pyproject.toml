@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "todo-project"
+version = "0.1.0"
+description = ""
+authors = ["AlexeiShigaev <9212010568@inbox.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.6"
+djangorestframework = "^3.15.1"
+psycopg = "^3.1.19"
+drf-yasg = "^1.21.7"
+django-filter = "^24.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
