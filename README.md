@@ -7,15 +7,17 @@
 
 ```
 git clone -b development https://github.com/AlexeiShigaev/todo-project.git
-docker compose up --build
+docker-compose up --build
 ```
+Для 
 
 ## Django admin
 
 Открываем в браузере страницу [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
 <br>Login: admin; Pass: passqw12
 
-Две модели доступны для добавления/редактирования/удаления данных - это Тэги и Задачи. В Задачах, удерживая Ctrl можно выбрать несколько тэгов
+Две модели доступны для добавления/редактирования/удаления данных - это Тэги и Задачи. 
+В Задачах, удерживая Ctrl можно выбрать несколько тэгов.
 
 ## Swagger документация
 
@@ -23,7 +25,7 @@ docker compose up --build
 
 ## API для обмена данными
 
-Страница [http://127.0.0.1:8000/api/todos/tasks/](http://127.0.0.1:8000/api/todos/tasks/)
+Страница [http://127.0.0.1:8000/api/todos/tasks/](http://127.0.0.1:8000/api/todos/tasks/)<br>
 Страница [http://127.0.0.1:8000/api/todos/tags/](http://127.0.0.1:8000/api/todos/tags/)
 
 ## Удалить в конце совсем все
