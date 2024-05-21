@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': 'tododb',           # Имя базы данных
         'USER': 'todopguser',       # Имя пользователя
         'PASSWORD': 'pgpwd4test',   # Пароль пользователя
-        'HOST': 'localhost',        # Наименование контейнера для базы данных в Docker Compose
+        'HOST': '172.17.0.1',        # Наименование контейнера для базы данных в Docker Compose
         'PORT': '5432',             # Порт базы данных
     }
 }

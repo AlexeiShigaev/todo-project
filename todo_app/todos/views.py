@@ -7,6 +7,7 @@ from todos.serializers import TagSerializer, ToDoTaskSerializer
 
 
 class TagFilterSet(filters.FilterSet):
+    """Фильтрация для модели Тэгов. Частичное совпадение строки при поиске."""
     class Meta:
         model = Tag
         fields = {

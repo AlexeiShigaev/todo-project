@@ -4,6 +4,7 @@ services:
 
   pgdb:
     image: postgres:15.1-alpine
+    restart: always
     #    volumes:
     #      - postgres_data:/var/lib/postgresql/data/
     #      - .:/docker-entrypoint-initdb.d
@@ -14,17 +15,35 @@ services:
     ports:
       - "5432:5432"
 
-  pgadmin:
-    image: dpage/pgadmin4:8.2
+#  pgadmin:
+#    image: dpage/pgadmin4:8.2
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: "testpguser@gmail.com"
+#      PGADMIN_DEFAULT_PASSWORD: "pgadminpwd4test"
+#      PGADMIN_CONFIG_SERVER_MODE: "False"
+#    ports:
+#      - "5050:80"
+#    depends_on:
+#      - pgdb
+
+  app:
+    build:
+      context: ./
+      dockerfile: ./todo_app/Dockerfile
     environment:
-      PGADMIN_DEFAULT_EMAIL: "testpguser@gmail.com"
-      PGADMIN_DEFAULT_PASSWORD: "pgadminpwd4test"
-      PGADMIN_CONFIG_SERVER_MODE: "False"
+      DJANGO_SUPERUSER_USERNAME: "admin"
+      DJANGO_SUPERUSER_PASSWORD: "passqw12"
+      DJANGO_SUPERUSER_EMAIL: "admin@admin.com"
+
+    command: >
+      sh -c "sleep 5 &&
+             python manage.py migrate &&
+             python manage.py createsuperuser --noinput &&
+             python manage.py runserver 0.0.0.0:8000"
     ports:
-      - "5050:80"
+      - "8000:8000"
     depends_on:
       - pgdb
-
 
 volumes:
   postgres_data:
