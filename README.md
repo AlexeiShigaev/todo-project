@@ -1,15 +1,32 @@
 # Список дел (задач)
 
+Простое приложение реализующее записную книгу / список задач (туду-шка).<br>
+* Ипользовано: postgresql, Django, DRF, django-filters. Подключен Swagger.<br>
+* Реализован API для доступа к данным.<br>
+* Приложение запаковано в докер-контейнер.<br>
+* Весь комплект запускается одной командой `docker-compose up`. В некоторых ОС для запуска будет `docker compose up` (без дефиса)
+
 ## Как запустить
-
-Предварительно, убедитесь что у вас установлен docker-compose.
-
+### Самый первый запуск
+Предварительно, убедитесь что у вас установлен **docker-compose**.
 
 ```
 git clone -b development https://github.com/AlexeiShigaev/todo-project.git
 docker-compose up --build
 ```
-Для 
+
+### Каждый следующи запуск, если без ребилдинга
+```
+docker-compose up
+```
+
+### Запуск, если нужна пересборка контейнеров (ребилдинг)
+ВНИМАНИЕ!!! Данные в базе postgresql будут обнулены
+```
+docker system prune
+docker-compose up --build
+```
+Если хочется совсем все вычистить, включая скачанные образы контейнеров, используйте `docker system prune -a` 
 
 ## Django admin
 
@@ -28,7 +45,3 @@ docker-compose up --build
 Страница [http://127.0.0.1:8000/api/todos/tasks/](http://127.0.0.1:8000/api/todos/tasks/)<br>
 Страница [http://127.0.0.1:8000/api/todos/tags/](http://127.0.0.1:8000/api/todos/tags/)
 
-## Удалить в конце совсем все
-```
-docker system prune -a
-```
